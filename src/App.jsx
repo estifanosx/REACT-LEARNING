@@ -19,7 +19,9 @@ import Counter from "./Components/Components/excersise/Counter.jsx";
 export default function App() {
   return (
     <div>
-      <Counter />
+      <Counter title="likes" start={0} />
+      <Counter title="followers" start={100} />
+      <Counter title="views" start={500} />
     </div>
   );
 }
