@@ -15,6 +15,10 @@ export default function Task() {
     setTask([...task, newTask]);
     setInput("");
   };
+
+  function deletefun(id) {
+    setTask(task.filter((item) => item.id !== id));
+  }
   return (
     <div className="min-h-screen bg-neutral-700 text-white  p-8">
       <header className="mb-6">
@@ -37,8 +41,14 @@ export default function Task() {
 
       <div>
         {task.map((task) => (
-          <div key={task.id} className="mt-5 bg-neutral-800 p-3 mb-2 rounded">
+          <div key={task.id} className="mt-5 bg-neutral-800 p-3 mb-2 flex items-center justify-between rounded">
             {task.tasktitle}
+            <button
+              onClick={() => deletefun(task.id)}
+              className="bg-red-700 p-2 rounded-xl"
+            >
+              Delete
+            </button>
           </div>
         ))}
       </div>
