@@ -41,14 +41,17 @@ export default function Task() {
 
       <div>
         {task.map((task) => (
-          <div key={task.id} className="mt-5 bg-neutral-800 p-3 mb-2 flex items-center justify-between rounded">
+          <div key={task.id} className="mt-5 bg-neutral-800 p-3 mb-2 rounded">
             {task.tasktitle}
-            <button
-              onClick={() => deletefun(task.id)}
-              className="bg-red-700 p-2 rounded-xl"
-            >
-              Delete
-            </button>
+            <div className="flex items-center justify-end gap-5 ">
+              <button
+                onClick={() => deletefun(task.id)}
+                className="bg-red-700 p-2 rounded-xl"
+              >
+                Delete
+              </button>
+              <button className="bg-blue-700 p-2 rounded-xl">Edit</button>
+            </div>
           </div>
         ))}
       </div>
