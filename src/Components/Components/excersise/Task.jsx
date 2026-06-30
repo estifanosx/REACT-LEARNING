@@ -3,6 +3,8 @@ import { useState } from "react";
 export default function Task() {
   const [task, setTask] = useState([]);
   const [input, setInput] = useState("");
+  const [editId, setEditId] = useState(null);
+  const [editText, setEditText] = useState("");
 
   const addTask = (e) => {
     e.preventDefault();
@@ -15,6 +17,19 @@ export default function Task() {
     setTask([...task, newTask]);
     setInput("");
   };
+  function editinitialize(task) {
+    setEditId(task.id);
+    setEditText(task.tasktitle);
+  }
+  function edit() {
+    setTask(
+      task.map((item) => {
+        item.id === editid ? { ...item, tasktitle: editTex } : item;
+      }),
+    );
+    setEditId(null);
+    setEditText("");
+  }
 
   function deletefun(id) {
     setTask(task.filter((item) => item.id !== id));
@@ -50,7 +65,12 @@ export default function Task() {
               >
                 Delete
               </button>
-              <button className="bg-blue-700 p-2 rounded-xl">Edit</button>
+              <button
+                onClick={(task) => editinitialize()}
+                className="bg-blue-700 p-2 rounded-xl"
+              >
+                Edit
+              </button>
             </div>
           </div>
         ))}
