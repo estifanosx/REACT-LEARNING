@@ -4,20 +4,23 @@ export default function Task() {
   const [task, setTask] = useState([]);
   const [input, setInput] = useState("");
 
-  const addTask = () => {
-    newTask = {
-      id: "1",
-      tasktitle: "work",
+  const addTask = (e) => {
+    e.preventDefault();
+    if (input.trim === "") return;
+    const newTask = {
+      id: Date.now(),
+      tasktitle: input,
     };
-    setTask([...task, addTask]);
-    setInput("")
+
+    setTask([...task, newTask]);
+    setInput("");
   };
   return (
-    <div className="min-h-screen bg-neutral-700 text-white ">
-      <header className="mb-20">
+    <div className="min-h-screen bg-neutral-700 text-white  p-8">
+      <header className="mb-6">
         <h1 className="text-center text-6xl font-bold">Task Vault</h1>
       </header>
-      <form className="flex items-center justify-between gap-6">
+      <form className="flex items-center justify-between gap-6 ">
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -31,6 +34,14 @@ export default function Task() {
           Add task
         </button>
       </form>
+
+      <div>
+        {task.map((task) => (
+          <div key={task.id} className="mt-5 bg-neutral-800 p-3 mb-2 rounded">
+            {task.tasktitle}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
