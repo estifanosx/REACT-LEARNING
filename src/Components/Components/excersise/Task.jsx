@@ -6,7 +6,7 @@ export default function Task() {
 
   const addTask = (e) => {
     e.preventDefault();
-    if (input.trim === "") return;
+    if (input.trim() === "") return;
     const newTask = {
       id: Date.now(),
       tasktitle: input,
