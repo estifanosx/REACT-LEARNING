@@ -1,13 +1,12 @@
 import { useState } from "react";
 
-export default function Counter({ title, start }) {
-  const [count, setCount ] = useState(start); 
-  
+export default function Counter() {
+  const [count, setCount] = useState(10);
+
   return (
     <div>
-      <div>{title}</div>
       <div>{count}</div>
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => setCount((prev) => prev + 10)}>+</button>
     </div>
   );
 }
