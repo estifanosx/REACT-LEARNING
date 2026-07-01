@@ -1,9 +1,12 @@
+import { useContext } from "react";
+import { CountContext } from "./countContext";
 
+export default function Countdis() {
+  const { count } = useContext(CountContext);
 
-export default function Countdis({ count }) {
   return (
     <div>
-      <h2 className="text-2xl">Display:{count}</h2>
+      <h2 className="text-2xl">Display: {count}</h2>
     </div>
   );
 }
