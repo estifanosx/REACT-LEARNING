@@ -1,8 +1,9 @@
+import { useEffect } from "react";
 export default function Login() {
   useEffect(() => {
-    console.log("am logged in ");
+    console.log("logged in ");
     return () => {
-      console.log("am logged out");
+      console.log("logged out");
       alert("yes loged out");
     };
   }, []);
