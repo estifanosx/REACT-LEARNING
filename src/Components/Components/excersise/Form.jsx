@@ -29,6 +29,7 @@ export default function Form() {
             <label for="password">password</label>
           </div>
         </div>
+        <button className="text-2xl text-white bg-emerald-500 p-4 rounded-xl ">Submit</button>
       </div>
     </form>
   );
