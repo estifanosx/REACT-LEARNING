@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 export default function Form() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <form className="min-h-screen bg-neutral-900 flex items-center justify-center">
       <div className="bg-neutral-800 p-8 rounded-xl w-96 space-y-5 ">
@@ -29,7 +31,9 @@ export default function Form() {
             <label for="password">password</label>
           </div>
         </div>
-        <button className="text-2xl text-white bg-emerald-500 p-4 rounded-xl ">Submit</button>
+        <button className="text-2xl text-white bg-emerald-500 p-4 rounded-xl ">
+          Submit
+        </button>
       </div>
     </form>
   );
